@@ -47,7 +47,7 @@ final class MySQLScopeDriver extends AbstractScopeDriver
     {
         $this->checkOrderDirectionIdentifier($orderDirection);
 
-        return $this->query->orderByRaw(DB::raw($this->getOrderByDistanceSQL($orderDirection)), [
+        return $this->query->orderByRaw(DB::raw($this->getOrderByDistanceSQL($orderDirection))->getValue(DB::getQueryGrammar()), [
             $long,
             $lat,
         ]);
